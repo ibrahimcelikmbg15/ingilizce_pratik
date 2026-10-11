@@ -50,33 +50,51 @@ haftalik_linkler = {
 }
 
 # Sayfa Ayarları
-st.set_page_config(page_title="İngilizce Ödev Linkleri", page_icon="📚", layout="wide")
+st.set_page_config(page_title="Bahçeşehir 4. Sınıf İngilizce", page_icon="📚", layout="wide")
 
-# Havalı Başlık ve Açıklama
-st.markdown("<h1 style='text-align: center; color: #4B0082;'>🌟 İngilizce Eğlence ve Çalışma Merkezi 🌟</h1>", unsafe_allow_html=True)
-st.markdown("<h4 style='text-align: center; color: #333333;'>Hoş geldiniz! Burası, 4. Sınıf İngilizce yolculuğumuzun haftalık durağı. İstediğiniz haftayı seçin ve pratik yapmaya hemen başlayın!</h4>", unsafe_allow_html=True)
+# Havalı Başlık
+st.markdown("<h1 style='text-align: center; color: #1E3A8A; text-shadow: 2px 2px 4px #aaa;'>🌟 Bahçeşehir 4. Sınıf İngilizce Eğlence Merkezi 🌟</h1>", unsafe_allow_html=True)
+
+# Açıklayıcı ve Şık Bilgi Kutusu
+st.markdown("""
+<div style='background-color: #f0f2f6; padding: 20px; border-radius: 10px; text-align: center; margin-bottom: 20px; border-left: 5px solid #1E3A8A;'>
+    <p style='font-size: 18px; color: #333;'>
+        Bu program, <b>Bahçeşehir 4. Sınıf İngilizce</b> derslerinde ödev olarak verilen eğitici oyunları ve videoları tek bir çatı altında derlemiştir.
+    </p>
+    <p style='font-size: 16px; color: #555;'>
+        Amacı; yolculukta, arabada ya da bilgisayarın olmadığı zamanlarda çocukların telefonunuzdan bu etkinliklere kolayca erişmesini sağlayarak, onlara her an pratik ve tekrar yapma imkanı sunmaktır.
+    </p>
+    <p style='font-size: 16px; color: #d32f2f; font-weight: bold;'>
+        🚀 Yeni konular işlendikçe, en az iki haftada bir listeye yepyeni haftalar eklenecektir. Takipte kalın!
+    </p>
+</div>
+""", unsafe_allow_html=True)
+
 st.markdown("---")
 
 # Hafta Seçimi
-secim = st.selectbox("Lütfen çalışmak istediğiniz haftayı seçin:", ["1", "2", "3", "4"])
+secim = st.selectbox("🎯 Lütfen çalışmak istediğiniz haftayı seçin:", ["1", "2", "3", "4"])
 st.markdown("---")
 
-# Videolar ve Oyunları 2 Sütuna Ayırma
+# Videolar ve Oyunları 2 Sütuna Ayırma (Düğme görünümlü linklerle)
 col1, col2 = st.columns(2)
 
 with col1:
     st.subheader(f"📺 {secim}. Hafta Videoları")
     for i, link in enumerate(haftalik_linkler[secim]["youtube"], 1):
-        # Buton gibi görünen tıklanabilir linkler
-        st.markdown(f"**{i}.** [▶️ Videoyu İzle]({link})")
+        st.markdown(f"**{i}.** <a href='{link}' target='_blank' style='text-decoration: none; color: white; background-color: #E53935; padding: 5px 10px; border-radius: 5px;'>▶️ Videoyu İzle</a>", unsafe_allow_html=True)
+        st.write("") # Görsellik için boşluk
 
 with col2:
     st.subheader(f"🎮 {secim}. Hafta Oyunları (Wordwall)")
     for i, link in enumerate(haftalik_linkler[secim]["wordwall"], 1):
-        # Buton gibi görünen tıklanabilir linkler
-        st.markdown(f"**{i}.** [🎲 Oyunu Oyna]({link})")
+        st.markdown(f"**{i}.** <a href='{link}' target='_blank' style='text-decoration: none; color: white; background-color: #1E88E5; padding: 5px 10px; border-radius: 5px;'>🎲 Oyunu Oyna</a>", unsafe_allow_html=True)
+        st.write("") # Görsellik için boşluk
 
-st.markdown("---")
-
-# Sistem Mimarı İmzası
-st.markdown("<p style='text-align: right; font-style: italic; color: gray; font-size: 14px;'>Sistem Mimarı: Doç. Dr. İbrahim ÇELİK</p>", unsafe_allow_html=True)
+# Büyük ve Gösterişli Sistem Mimarı İmzası
+st.markdown("""
+<div style='text-align: center; margin-top: 50px; padding: 20px; border-top: 2px dashed #bbb;'>
+    <h3 style='color: #7f8c8d; font-family: "Arial", sans-serif; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 5px;'>Sistem Mimarı</h3>
+    <h1 style='color: #2c3e50; font-size: 40px; text-shadow: 2px 2px 4px rgba(0,0,0,0.2); margin: 0; font-weight: 900;'>Doç. Dr. İbrahim ÇELİK</h1>
+</div>
+""", unsafe_allow_html=True)
