@@ -69,6 +69,14 @@ haftalik_linkler = {
     "6": {
         "youtube": [],
         "wordwall": []
+    },
+    "7": {
+        "youtube": [],
+        "wordwall": [
+            "https://wordwall.net/resource/61099623?wwmethod=link",
+            "https://wordwall.net/resource/36486248?wwmethod=link",
+            "https://wordwall.net/resource/88841319?wwmethod=link"
+        ]
     }
 }
 
@@ -80,13 +88,17 @@ st.markdown("<h1 style='text-align: center; color: #4B0082;'>🌟 İngilizce Eğ
 st.markdown("<h4 style='text-align: center; color: #333333;'>Bu program, Bahçeşehir 4. Sınıf İngilizce dersinde ödev olarak verilen oyun ve videoların linklerini derlemektedir.<br>Amacı, bu oyun ve videolara telefonunuzdan kolayca erişip yolculukta ya da bilgisayar olmadığı zamanlarda çocuklara pratik ve tekrar yaptırmaktır. Yeni konular geldikçe (en az iki haftada bir) listemiz güncellenecektir!</h4>", unsafe_allow_html=True)
 st.markdown("---")
 
-# Hafta Seçimi (6. hafta eklendi)
-secim = st.selectbox("Lütfen çalışmak istediğiniz haftayı seçin:", ["1", "2", "3", "4", "5", "6"])
+# Hafta Seçimi (7. hafta eklendi)
+secim = st.selectbox("Lütfen çalışmak istediğiniz haftayı seçin:", ["1", "2", "3", "4", "5", "6", "7"])
 st.markdown("---")
 
-# 6. Hafta için Özel Uyarı Mesajı (Link olmadığı için)
+# Özel Uyarı Mesajları
 if secim == "6":
     st.info("📌 Bu hafta öğretmenimiz doğrudan YouTube veya Wordwall linki göndermemiştir. Görevler doğrudan Metodbox üzerinden tamamlanacaktır:\n\n1️⃣ **Metodbox Ev Çalışmaları:** 23.10.2026 tarihli video izlenip etkinlikleri yapılacak.\n\n2️⃣ **Highlights Library:** 'The Birthday Party (Level 6)' kitabı okunup quizi çözülecek.")
+    st.markdown("[🚀 Metodbox'a Gitmek İçin Tıklayın](https://metodbox.com)")
+
+if secim == "7":
+    st.info("📌 **7. Hafta Görevleri Hatırlatması:**\n\n1️⃣ **Metodbox:** 'Ev Çalışmaları' bölümündeki 30.10.2026 tarihli video izlenip etkinlikleri tamamlanmalı.\n\n2️⃣ **Dijital Görev:** Canva'da piknik sepeti tasarlanıp yiyeceklerin miktarlarıyla (some/any) anlatıldığı bir ses kaydı projeye eklenmeli.\n\n3️⃣ **Çalışma Kâğıdı:** 'Weekend Worksheet 7' tamamlanıp okula teslim edilmeli.")
     st.markdown("[🚀 Metodbox'a Gitmek İçin Tıklayın](https://metodbox.com)")
 
 # Videolar ve Oyunları 2 Sütuna Ayırma
@@ -94,11 +106,15 @@ col1, col2 = st.columns(2)
 
 with col1:
     st.subheader(f"📺 {secim}. Hafta Videoları")
+    if not haftalik_linkler[secim]["youtube"]:
+        st.write("Bu hafta için Youtube video linki bulunmamaktadır.")
     for i, link in enumerate(haftalik_linkler[secim]["youtube"], 1):
         st.markdown(f"**{i}.** [▶️ Videoyu İzle]({link})")
 
 with col2:
     st.subheader(f"🎮 {secim}. Hafta Oyunları (Wordwall)")
+    if not haftalik_linkler[secim]["wordwall"]:
+        st.write("Bu hafta için Wordwall oyun linki bulunmamaktadır.")
     for i, link in enumerate(haftalik_linkler[secim]["wordwall"], 1):
         st.markdown(f"**{i}.** [🎲 Oyunu Oyna]({link})")
 
