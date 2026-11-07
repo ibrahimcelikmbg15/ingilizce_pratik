@@ -126,4 +126,40 @@ st.markdown("---")
 
 # Özel Uyarı Mesajları
 if secim == "6":
-    st.info("📌 **6. Hafta Görevleri Hatırlatması:**\n\n1️⃣ **Metodbox Ev Çalışmaları:** 23.10.2026 tarihli video izlenip etkinlikleri yapılacak.\n\n2️⃣ **Highlights Library
+    st.info("📌 **6. Hafta Görevleri Hatırlatması:**\n\n1️⃣ **Metodbox Ev Çalışmaları:** 23.10.2026 tarihli video izlenip etkinlikleri yapılacak.\n\n2️⃣ **Highlights Library:** 'The Birthday Party (Level 6)' kitabı okunup quizi çözülecek.")
+    st.markdown("[🚀 Metodbox'a Gitmek İçin Tıklayın](https://metodbox.com)")
+
+elif secim == "7":
+    st.info("📌 **7. Hafta Görevleri Hatırlatması:**\n\n1️⃣ **Metodbox:** 'Ev Çalışmaları' bölümündeki 30.10.2026 tarihli video izlenip etkinlikleri tamamlanmalı.\n\n2️⃣ **Dijital Görev:** Canva'da piknik sepeti tasarlanıp yiyeceklerin miktarlarıyla (some/any) anlatıldığı bir ses kaydı projeye eklenmeli.\n\n3️⃣ **Çalışma Kâğıdı:** 'Weekend Worksheet 7' tamamlanıp okula teslim edilmeli.")
+    st.markdown("[🚀 Metodbox'a Gitmek İçin Tıklayın](https://metodbox.com)")
+
+elif secim == "8":
+    st.info("📌 **8. Hafta Görevleri Hatırlatması:**\n\n1️⃣ **Metodbox & Highlights Library:** 'Amaze 4 Book A Unit 4' videosu izlenecek ve 'Holiday Cookies' (Level 6) kitabı okunup quiz çözülecek.\n\n2️⃣ **Dijital & Aile Görevi:** ChatterPix ile evdeki bir oyuncak üzerinden sağlıklı/sağlıksız yiyecekler ses kaydı yapılacak ve 'Aile Günü Planı' (Gerund & Infinitive) hazırlanacak.\n\n3️⃣ **Çalışma Kâğıtları:** 'Weekend Worksheet 8' ve 'There is/are & Some/Any' kâğıtları okula teslim edilecek.")
+    st.markdown("[🚀 Metodbox'a Gitmek İçin Tıklayın](https://metodbox.com)")
+
+# Videolar ve Oyunları 2 Sütuna Ayırma
+col1, col2 = st.columns(2)
+
+with col1:
+    st.subheader(f"📺 {secim}. Hafta Videoları")
+    if not haftalik_linkler[secim]["youtube"]:
+        st.write("Bu hafta için Youtube video linki bulunmamaktadır.")
+    for i, link in enumerate(haftalik_linkler[secim]["youtube"], 1):
+        st.markdown(f"**{i}.** <a href='{link}' target='_blank' style='text-decoration: none; color: white; background-color: #E53935; padding: 5px 10px; border-radius: 5px; display: inline-block; margin-bottom: 5px;'>▶️ Videoyu İzle</a>", unsafe_allow_html=True)
+        st.write("") 
+
+with col2:
+    st.subheader(f"🎮 {secim}. Hafta Oyunları (Wordwall)")
+    if not haftalik_linkler[secim]["wordwall"]:
+        st.write("Bu hafta için Wordwall oyun linki bulunmamaktadır.")
+    for i, link in enumerate(haftalik_linkler[secim]["wordwall"], 1):
+        st.markdown(f"**{i}.** <a href='{link}' target='_blank' style='text-decoration: none; color: white; background-color: #1E88E5; padding: 5px 10px; border-radius: 5px; display: inline-block; margin-bottom: 5px;'>🎲 Oyunu Oyna</a>", unsafe_allow_html=True)
+        st.write("") 
+
+# Büyük ve Gösterişli Sistem Mimarı İmzası
+st.markdown("""
+<div style='text-align: center; margin-top: 50px; padding: 20px; border-top: 2px dashed #bbb;'>
+    <h3 style='color: #7f8c8d; font-family: "Arial", sans-serif; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 5px;'>Sistem Mimarı</h3>
+    <h1 style='color: #2c3e50; font-size: 40px; text-shadow: 2px 2px 4px rgba(0,0,0,0.2); margin: 0; font-weight: 900;'>Doç. Dr. İbrahim ÇELİK</h1>
+</div>
+""", unsafe_allow_html=True)
