@@ -125,3 +125,5 @@ secim = st.selectbox("🎯 Lütfen çalışmak istediğiniz haftayı seçin:", [
 st.markdown("---")
 
 # Özel Uyarı Mesajları
+if secim == "6":
+    st.info("📌 **6. Hafta Görevleri Hatırlatması:**\n\n1️⃣ **Metodbox Ev Çalışmaları:** 23.10.2026 tarihli video izlenip etkinlikleri yapılacak.\n\n2️⃣ **Highlights Library
